@@ -38,9 +38,14 @@ function App() {
 
   console.log(isState)
 
-  function handleSubmit(e){
+  function handleSubmit(e, guess){
     e.preventDefault();
-    console.log('handling the guess')
+
+    if(guess === isState.answer){
+      console.log('CORRECT')
+    } else {
+      console.log('WRONG')
+    }
   }
 
   function getRandomNum(min, max) {
