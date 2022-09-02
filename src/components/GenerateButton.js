@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function Generate(){
+function GenerateButton(){
     return (
         <div className='is-flex is-justify-content-center mt-6'>
             <button className='button is-warning is-large mt-6'>Random Definition</button>
@@ -9,4 +9,4 @@ function Generate(){
     )
 }
 
-export default Generate;
+export default GenerateButton;

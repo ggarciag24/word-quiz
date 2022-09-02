@@ -1,12 +1,12 @@
 import './index.css';
 import Header from './components/Header'
-import Generate from './components/Generate';
+import GenerateButton from './components/GenerateButton';
 
 function App() {
   return (
     <div className="App">
     <Header />
-    <Generate />
+    <GenerateButton />
     </div>
   );
 }
