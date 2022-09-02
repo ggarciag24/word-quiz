@@ -1,7 +1,8 @@
 import './index.css';
-import Header from './components/Header'
+import Header from './components/Header';
 import GenerateButton from './components/GenerateButton';
 import GeneratedDefinition from './components/GeneratedDefinition';
+import Answer from './components/Answer';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Header />
     <GenerateButton />
     <GeneratedDefinition /> 
+    <Answer />
     </div>
   );
 }
