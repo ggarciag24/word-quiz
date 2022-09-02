@@ -5,3 +5,15 @@
   width: 50%;
   margin-left: 25%;
 }
+
+.answer-input {
+  width: 20%;
+  height: 3rem;
+  margin-left: 40%;
+}
+
+.guess-btn {
+  width: 10%;
+  height: 2rem;
+  margin-left: 45%;
+}
