@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-function GeneratedDefinition(){
+function GeneratedDefinition(props){
     return (
         <div className='def is-flex is-justify-content-center mt-6'>
-            <p> this is where the fetched definiton will appear</p>
+            <p>{props.state.definition}</p>
         </div>
     )
 }
