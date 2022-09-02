@@ -14,6 +14,8 @@ function App() {
     answer: ''
   })
 
+  const [isResult, setIsResult] = React.useState(false)
+
 
 
   function handleClickRandom(){
@@ -25,6 +27,8 @@ function App() {
         answer: word
       }
     })
+
+    setIsResult(false)
 
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then(res => res.json())
@@ -42,9 +46,9 @@ function App() {
     e.preventDefault();
 
     if(guess === isState.answer){
-      console.log('CORRECT')
+      setIsResult(true);
     } else {
-      console.log('WRONG')
+      setIsResult(false)
     }
   }
 
@@ -59,7 +63,7 @@ function App() {
     <Header />
     <GenerateButton  handleClickRandom={handleClickRandom}/>
     <GeneratedDefinition state={isState}/> 
-    <Answer handleSubmit={handleSubmit}/>
+    <Answer handleSubmit={handleSubmit} />
     </div>
   );
 }
