@@ -63,7 +63,7 @@ function App() {
     <Header />
     <GenerateButton  handleClickRandom={handleClickRandom}/>
     <GeneratedDefinition state={isState}/> 
-    <Answer handleSubmit={handleSubmit} />
+    <Answer handleSubmit={handleSubmit} result={isResult}/>
     </div>
   );
 }
