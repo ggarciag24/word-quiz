@@ -11,7 +11,8 @@ function App() {
 
   const [isState, setIsState] = React.useState({
     definition: '',
-    answer: ''
+    answer: '',
+    hint: ''
   })
 
   const [isCorrect, setIsCorrect] = React.useState(false)
@@ -38,9 +39,11 @@ function App() {
     .then(res => res.json())
     .then(data => setIsState((prev) => {
       return { ...prev,
-        definition: data[0].meanings[0].definitions[0].definition
+        definition: data[0].meanings[0].definitions[0].definition,
+        hint: data[0].meanings[0].partOfSpeech
       }
-    }))
+    }
+    ))
   }
 
 
@@ -62,12 +65,17 @@ function App() {
     return Math.floor(Math.random() * (max - min) + min); 
   }
 
+
+  function handleHint(){
+    console.log('HINT HERE')
+  }
+
   return (
     <div className="App">
     <Header />
     <GenerateButton  handleClickRandom={handleClickRandom}/>
     <GeneratedDefinition state={isState}/> 
-    <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong}/>
+    <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong} handleHint={handleHint}/>
     </div>
   );
 }
