@@ -14,7 +14,9 @@ function App() {
     answer: ''
   })
 
-  const [isResult, setIsResult] = React.useState(false)
+  const [isCorrect, setIsCorrect] = React.useState(false)
+  const [isWrong, setIsWrong] = React.useState(false)
+
 
 
 
@@ -28,7 +30,9 @@ function App() {
       }
     })
 
-    setIsResult(false)
+    setIsCorrect(false)
+    setIsWrong(false)
+
 
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then(res => res.json())
@@ -46,9 +50,9 @@ function App() {
     e.preventDefault();
 
     if(guess === isState.answer){
-      setIsResult(true);
+      setIsCorrect(true);
     } else {
-      setIsResult(false)
+      setIsWrong(true);
     }
   }
 
@@ -63,7 +67,7 @@ function App() {
     <Header />
     <GenerateButton  handleClickRandom={handleClickRandom}/>
     <GeneratedDefinition state={isState}/> 
-    <Answer handleSubmit={handleSubmit} result={isResult}/>
+    <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong}/>
     </div>
   );
 }
