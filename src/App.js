@@ -12,9 +12,11 @@ function App() {
   const [isState, setIsState] = React.useState({
     definition: '',
     answer: '',
-    hint: ''
+    hintOne: '',
+    hintTwo: '',
   })
 
+  const [isHintCounter, setIsHintCounter] = React.useState(0)
   const [isCorrect, setIsCorrect] = React.useState(false)
   const [isWrong, setIsWrong] = React.useState(false)
 
@@ -33,6 +35,7 @@ function App() {
 
     setIsCorrect(false)
     setIsWrong(false)
+    setIsHintCounter(0)
 
 
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
@@ -40,7 +43,8 @@ function App() {
     .then(data => setIsState((prev) => {
       return { ...prev,
         definition: data[0].meanings[0].definitions[0].definition,
-        hint: data[0].meanings[0].partOfSpeech
+        hintOne: data[0].meanings[0].partOfSpeech,
+        hintTwo: data[0].meanings[0].definitions[1].definition
       }
     }
     ))
@@ -67,14 +71,14 @@ function App() {
 
 
   function handleHint(){
-    console.log('HINT HERE')
+    setIsHintCounter(prev => prev + 1);
   }
 
   return (
     <div className="App">
     <Header />
     <GenerateButton  handleClickRandom={handleClickRandom}/>
-    <GeneratedDefinition state={isState}/> 
+    <GeneratedDefinition state={isState} hint={isHintCounter}/> 
     <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong} handleHint={handleHint}/>
     </div>
   );
