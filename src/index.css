@@ -2,8 +2,14 @@
   border: 1px solid black;
   border-radius: 100px;
   height: 8rem;
-  width: 50%;
-  margin-left: 25%;
+  width: 54%;
+  margin-left: 23%;
+}
+
+.def-child {
+  margin-left: 20%;
+  margin-right: 20%;
+
 }
 
 .answer-input {
@@ -12,8 +18,14 @@
   margin-left: 40%;
 }
 
-.guess-btn {
+.hint-btn {
   width: 10%;
   height: 2rem;
   margin-left: 45%;
+}
+
+.guess-btn {
+  width: 18%;
+  height: 3rem;
+  margin-left: 41%;
 }
