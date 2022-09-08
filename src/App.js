@@ -79,7 +79,7 @@ function App() {
     <Header />
     <GenerateButton  handleClickRandom={handleClickRandom}/>
     <GeneratedDefinition state={isState} hint={isHintCounter}/> 
-    <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong} handleHint={handleHint}/>
+    <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong} handleHint={handleHint} hint={isHintCounter}/>
     </div>
   );
 }
