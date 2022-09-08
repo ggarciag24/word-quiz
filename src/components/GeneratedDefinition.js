@@ -6,7 +6,6 @@ function GeneratedDefinition(props){
         <div>
         <div className='def is-flex is-justify-content-center mt-6'>
             <p className='def-child'>{props.state.definition}</p>
-            { props.state.definition  === '' && <p> CLICK THE BUTTON ABOVE!</p>}
         </div>
         
         { props.hint >= 1 && <div className='def is-flex is-justify-content-center mt-6'>
