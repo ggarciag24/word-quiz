@@ -10,7 +10,7 @@ function Answer(props){
     return (
         
         <div className='is-flex is-flex-direction-column is-justify-content-center mt-6'>
-            <button onClick={props.handleHint} className='hint-btn has-background-black-bis has-text-warning mb-3'>Hint?</button>
+            { props.hint !== 2 && <button onClick={props.handleHint} className='hint-btn has-background-black-bis has-text-warning mb-3'>Hint?</button>}
             {props.correct === true && <h1 className='has-text-success is-align-self-center is-size-1 mb-2'>CORRECT!!</h1>}
             {props.wrong === true && <h1 className='has-text-danger is-align-self-center is-size-1 mb-2'>WRONG!!</h1>}
             {guessElementArr.length >= 1  && <div className='guesses'> <h4 className='guess-header'>Previous Guesses</h4>{guessElementArr}</div>}

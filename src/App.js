@@ -68,11 +68,14 @@ function App() {
       setIsCorrect(true);
     } else {
       setIsWrong(true);
+
+      setTimeout(() => {
+        setIsWrong(false);
+      }, 4000);
     }
 
   }
 
-  console.log(isGuessesArr);
 
   function getRandomNum(min, max) {
     min = Math.ceil(min);
@@ -89,8 +92,8 @@ function App() {
     <div className="App">
     <Header />
     <GenerateButton  handleClickRandom={handleClickRandom}/>
-    <GeneratedDefinition state={isState} hint={isHintCounter}/> 
-    <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong} handleHint={handleHint} guessesArr={isGuessesArr}/>
+    { isState.answer !== '' && <GeneratedDefinition state={isState} hint={isHintCounter}/> }
+    { isState.answer !== '' && <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong} handleHint={handleHint} hint={isHintCounter} guessesArr={isGuessesArr} /> }
     </div>
   );
 }
