@@ -60,6 +60,10 @@ function App() {
       setIsCorrect(true);
     } else {
       setIsWrong(true);
+
+      setTimeout(() => {
+        setIsWrong(false);
+      }, 4000);
     }
   }
 
