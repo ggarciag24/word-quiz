@@ -4,7 +4,7 @@ import Header from './components/Header';
 import GenerateButton from './components/GenerateButton';
 import GeneratedDefinition from './components/GeneratedDefinition';
 import Answer from './components/Answer';
-import WordList from './data/wordlist.json'
+import WordList from './data/wordlist.json';
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
   const [isHintCounter, setIsHintCounter] = React.useState(0)
   const [isCorrect, setIsCorrect] = React.useState(false)
   const [isWrong, setIsWrong] = React.useState(false)
+  const [isGuessesArr, setIsGuessesArr] = React.useState([])
 
 
 
@@ -36,6 +37,7 @@ function App() {
     setIsCorrect(false)
     setIsWrong(false)
     setIsHintCounter(0)
+    setIsGuessesArr([])
 
 
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
@@ -56,6 +58,12 @@ function App() {
   function handleSubmit(e, guess){
     e.preventDefault();
 
+    setIsGuessesArr((prev) => {
+      return [
+        ...prev,
+        guess
+      ]})
+      
     if(guess === isState.answer){
       setIsCorrect(true);
     } else {
@@ -65,7 +73,9 @@ function App() {
         setIsWrong(false);
       }, 4000);
     }
+
   }
+
 
   function getRandomNum(min, max) {
     min = Math.ceil(min);
@@ -83,7 +93,7 @@ function App() {
     <Header />
     <GenerateButton  handleClickRandom={handleClickRandom}/>
     { isState.answer !== '' && <GeneratedDefinition state={isState} hint={isHintCounter}/> }
-    { isState.answer !== '' && <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong} handleHint={handleHint} hint={isHintCounter}/> }
+    { isState.answer !== '' && <Answer handleSubmit={handleSubmit} correct={isCorrect} wrong={isWrong} handleHint={handleHint} hint={isHintCounter} guessesArr={isGuessesArr} /> }
     </div>
   );
 }
