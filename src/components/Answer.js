@@ -1,11 +1,11 @@
 import React from 'react'
-import Guesses from './Guesses'
+import Guess from './Guess'
 
 
 function Answer(props){
 
     const guessElementArr = props.guessesArr.map((item, index) => {
-        return <Guesses word={item} key={index}/>
+        return <Guess word={item} key={index}/>
       }) 
     return (
         
