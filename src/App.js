@@ -57,7 +57,8 @@ function App() {
 
   function handleSubmit(e, guess){
     e.preventDefault();
-
+    e.target[0].value = '';
+    
     setIsGuessesArr((prev) => {
       return [
         ...prev,
