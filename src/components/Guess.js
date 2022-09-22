@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-function Guesses(props){
+function Guess(props){
  
     return (
         <div className='guess-list'>
@@ -13,4 +13,4 @@ function Guesses(props){
 
 
 
-export default Guesses
+export default Guess;
