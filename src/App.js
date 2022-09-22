@@ -55,8 +55,7 @@ function App() {
 
   console.log(isState)
 
-  function handleSubmit(e, guess){
-    e.preventDefault();
+  function handleSubmit(guess){
 
     setIsGuessesArr((prev) => {
       return [
