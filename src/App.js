@@ -46,7 +46,7 @@ function App() {
       return { ...prev,
         definition: data[0].meanings[0].definitions[0].definition,
         hintOne: data[0].meanings[0].partOfSpeech,
-        hintTwo: data[0].meanings[0].definitions[1].definition
+        hintTwo: data[0].phonetic
       }
     }
     ))

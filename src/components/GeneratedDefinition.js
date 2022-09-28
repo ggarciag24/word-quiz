@@ -12,8 +12,8 @@ function GeneratedDefinition(props){
             <p className='def-child'> Part of Speech: {props.state.hintOne}</p>
             </div>}
 
-        { props.hint >= 2 && <div className='def is-flex is-justify-content-center mt-6' data-testid='def-2'>
-            <p className='def-child'>Definition #2: {props.state.hintTwo}</p>
+        { props.hint >= 2 && <div className='def is-flex is-justify-content-center mt-6' data-testid='phonetic'>
+            <p className='def-child'>Phonetic: {props.state.hintTwo}</p>
             </div>}
 
         </div>

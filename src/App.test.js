@@ -70,16 +70,16 @@ test('when the hint button is clicked the part of speech hint appears', () => {
 })
 
 test('when the hint button is clicked twice the second definition appears', () => {
-  const secondDefinitionElement = screen.queryByTestId('def-2');
+  const secondDefinitionElement = screen.queryByTestId('phonetic');
   expect(secondDefinitionElement).toBeNull();
   randomDefBtnClick();
-  const secondDefinitionElementAgain = screen.queryByTestId('def-2');
+  const secondDefinitionElementAgain = screen.queryByTestId('phonetic');
   expect(secondDefinitionElementAgain).toBeNull();
   hintBtnClick();
-  const secondDefinitionElementAgain2 = screen.queryByTestId('def-2');
+  const secondDefinitionElementAgain2 = screen.queryByTestId('phonetic');
   expect(secondDefinitionElementAgain2).toBeNull();
   hintBtnClick();
-  const secondDefinitionElementAgain3 = screen.getByTestId('def-2');
+  const secondDefinitionElementAgain3 = screen.getByTestId('phonetic');
   expect(secondDefinitionElementAgain3).toBeInTheDocument();
 })
 })
